@@ -14,6 +14,10 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 
+//Load foundation
+require('style!css!foundation-sites/dist/foundation.min.css') //set the style loader and css loader before the file path so that the file can load in a css file and read its styling format
+$(document).foundation();
+
 //when you have a parent component thats handling an event from the child you usually call the parent 'handle' followed by the name you chose and then you call it in the child with 'on' followed by the name you chose. ie onNewData (child) vs handleNewData (parent)
 
 ReactDOM.render(
@@ -21,7 +25,7 @@ ReactDOM.render(
     <Route path='/' component={Main}>
       <Route path='about' component={About} />
       <Route path='examples' component={Examples} />
-      <IndexRoute component={Weather}/> 
+      <IndexRoute component={Weather}/>
     </Route>
   </Router>,
   document.getElementById('app')

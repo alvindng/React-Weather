@@ -1,5 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx', //the entry point is where webpack starts compiling the bundle file. its the first file it looks in for which modules and components are going to be required. if they are required, they are put into bundle.js
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
+  ], //the entry point is where webpack starts compiling the bundle file. its the first file it looks in for which modules and components are going to be required. if they are required, they are put into bundle.js
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'

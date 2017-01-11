@@ -21,7 +21,7 @@ $(document).foundation();
 //when you have a parent component thats handling an event from the child you usually call the parent 'handle' followed by the name you chose and then you call it in the child with 'on' followed by the name you chose. ie onNewData (child) vs handleNewData (parent)
 
 //App css
-require('style!css!applicationStyles') //two loaders
+require('style!css!sass!applicationStyles') //three loaders
 
 ReactDOM.render(
   <Router history={hashHistory}>

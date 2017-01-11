@@ -10,7 +10,8 @@ module.exports = {
     return axios.get(requestURL).then(function(response){ //takes a URL and fetches request. axios uses promises, so the .then function will pass in success and error callbacks
       debugger;
       if (response.data.cod && response.data.message) {
-        throw new Error(response.data.message);
+        // throw new Error(response.data.message);
+        throw new Error('Unable to fetch weather for that location.');
       }else {
         return response.data.main.temp;
       }

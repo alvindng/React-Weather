@@ -1,4 +1,5 @@
 //state can be updated by components, props cannot. props are created whenever a component is initialized
+//state is something a component can change and prop is something a component cannot change, but a parent can always update a child's props
 //every React component needs a render method
 //every React component should be responsible for one thing only - single responsiblity principle
 //presentational components - visible to user and dont maintain state; takes props and renders something to the browser

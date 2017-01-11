@@ -15,7 +15,9 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function (temp) {
@@ -31,6 +33,22 @@ var Weather = React.createClass({
       });
     });
   },
+  componentDidMount: function() {
+    var location = this.props.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  }, //componentDidMount fires when the entire component successfully loads into the browser
+  componentWillReceiveProps: function (newProps) {
+    var location = newProps.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  }, //this function is gonna be called anytime the component's props get updated. it only takes the new props in the function
   render: function () {
     var {isLoading, temp, location, errorMessage} = this.state; //destructured - same as this.state.temp and this.state.location, but on one line
 
